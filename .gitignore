@@ -39,11 +39,8 @@ Thumbs.db
 webclient/
 [Bb]uild/
 
-*.scene
-*.unity
-
 # ======= #
 # Dropbox #
-# ======= #
+# ======= #	
 .dropbox
 desktop.ini
