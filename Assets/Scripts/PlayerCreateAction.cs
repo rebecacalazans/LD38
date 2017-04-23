@@ -10,10 +10,16 @@ public class PlayerCreateAction : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey("a"))
+        if (Input.GetKeyDown("z"))
         {
-            if (obj != null) Destroy(obj);
-            obj = Instantiate(prefabTree, createPosition.transform.position, createPosition.transform.rotation, transform);
+            if (obj != null)
+            {
+                obj.transform.SetParent(null);
+                obj = null;
+            }
+            else {
+                obj = Instantiate(prefabTree, createPosition.transform.position, createPosition.transform.rotation, transform);
+            }
         }
 
         if (Input.GetKey("escape"))
