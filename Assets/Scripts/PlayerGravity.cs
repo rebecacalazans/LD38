@@ -26,6 +26,6 @@ public class PlayerGravity : MonoBehaviour {
 
     public bool isGrounded()
     {
-        return Physics.Raycast(transform.position, -transform.up, distToGround + 0.1f);
+        return Physics.Raycast(transform.position, -transform.up, distToGround + 0.1f, 1 << 8);
     }
 }
