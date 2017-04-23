@@ -8,7 +8,7 @@ public class PlayerGravity : MonoBehaviour {
     public float accel = 5f;
 
     float distToGround;
-    bool onGround = false;
+
     Rigidbody rb;
 
     void Start() {
@@ -19,14 +19,12 @@ public class PlayerGravity : MonoBehaviour {
     void Update () {
         Vector3 normal = (baseTransform.position - planet.position).normalized;
 
-        onGround = isGrounded();
-
-        if (!onGround) {
+        if (!isGrounded()) {
             rb.AddForce(-normal * accel);
         }
     }
 
-    bool isGrounded()
+    public bool isGrounded()
     {
         return Physics.Raycast(transform.position, -transform.up, distToGround + 0.1f);
     }

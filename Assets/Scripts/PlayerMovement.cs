@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public float speed = 5f, angularSpeed = 90f;
+    public float jumpSpeed = 120f;
 
-	void FixedUpdate () {
+    Rigidbody rb;
+    PlayerGravity playerGravity;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        playerGravity = GetComponent<PlayerGravity>();
+    }
+
+    void FixedUpdate () {
         if (Input.GetKey("up")) {
             transform.position += transform.forward.normalized * speed * Time.deltaTime;
         }
@@ -17,6 +27,11 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (Input.GetKey("right")) {
             transform.RotateAround(transform.position, transform.up, angularSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey("space") && playerGravity.isGrounded())
+        {
+            rb.AddForce(jumpSpeed * transform.up);
         }
 	}
 }
