@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerCreateAction : MonoBehaviour
 {
     public GameObject prefabTree, prefabWell;
-    public GameObject obj = null;
     public Transform createPosition;
+
+    GameObject obj = null;
 
     void Update()
     {
