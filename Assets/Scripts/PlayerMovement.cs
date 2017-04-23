@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     public float speed = 5f, angularSpeed = 90f;
     public float jumpSpeed = 120f;
 
@@ -15,26 +16,28 @@ public class PlayerMovement : MonoBehaviour {
         playerGravity = GetComponent<PlayerGravity>();
     }
 
-    void FixedUpdate () {
-        if (Input.GetKey("up")) {
+    void FixedUpdate()
+    {
+        if (Input.GetKey("up"))
+        {
             transform.position += transform.forward.normalized * speed * Time.deltaTime;
         }
-        if (Input.GetKey("down")) {
+        if (Input.GetKey("down"))
+        {
             transform.position -= transform.forward.normalized * speed * Time.deltaTime;
         }
-        if (Input.GetKey("left")) {
+        if (Input.GetKey("left"))
+        {
             transform.RotateAround(transform.position, transform.up, -angularSpeed * Time.deltaTime);
         }
-        if (Input.GetKey("right")) {
+        if (Input.GetKey("right"))
+        {
             transform.RotateAround(transform.position, transform.up, angularSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey("space") && playerGravity.isGrounded()) {
+        if (Input.GetKey("space") && playerGravity.isGrounded())
+        {
             rb.AddForce(jumpSpeed * transform.up);
         }
-
-        if(Input.GetKey("c") && GetComponent<PlayerVariables>().nextObject != null) {
-            GetComponent<PlayerVariables>().nextObject.executeAction();
-        }
-	}
+    }
 }
