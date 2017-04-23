@@ -374,7 +374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4520412051723146, guid: 77f8f3f38d0eaa24ea88d3b38a91142c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.85
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 4520412051723146, guid: 77f8f3f38d0eaa24ea88d3b38a91142c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -400,11 +400,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114212865278257292, guid: 77f8f3f38d0eaa24ea88d3b38a91142c,
-        type: 2}
-      propertyPath: planet
-      value: 
-      objectReference: {fileID: 1138681217}
     - target: {fileID: 114350307319235098, guid: 77f8f3f38d0eaa24ea88d3b38a91142c,
         type: 2}
       propertyPath: player
@@ -521,11 +516,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114840507952761692, guid: 67df747cdb0837e4b80ff547badde523,
-        type: 2}
-      propertyPath: planet
-      value: 
-      objectReference: {fileID: 1138681217}
     - target: {fileID: 114408700322255888, guid: 67df747cdb0837e4b80ff547badde523,
         type: 2}
       propertyPath: player
@@ -707,6 +697,7 @@ MonoBehaviour:
   food: 100
   water: 100
   wood: 0
+  nextObject: {fileID: 0}
 --- !u!114 &1952946936
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,11 @@ public class Action : MonoBehaviour
     public Type type;
     public PlayerVariables player;
 
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerVariables>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") player.nextObject = this;
@@ -22,7 +27,8 @@ public class Action : MonoBehaviour
         if (type == Type.Tree)
         {
             player.wood += 5;
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            GetComponent<DestroyObject>().StartDeath();
         }
         else if (type == Type.Well)
         {
