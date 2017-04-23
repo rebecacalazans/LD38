@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    float speed = 5f, angularSpeed = 20f;
-
+    public float speed = 5f, angularSpeed = 90f;
 
 	void FixedUpdate () {
         if (Input.GetKey("up")) {

@@ -5,31 +5,29 @@ using UnityEngine;
 public class PlayerGravity : MonoBehaviour {
     public Transform planet;
     public Transform baseTransform;
-    public float accel = 10;
-    public bool onGround = false;
+    public float accel = 5f;
 
+    float distToGround;
+    bool onGround = false;
     Rigidbody rb;
 
     void Start() {
+        distToGround = GetComponent<Collider>().bounds.extents.y;
         rb = GetComponent<Rigidbody>();
     }
 
     void Update () {
         Vector3 normal = (baseTransform.position - planet.position).normalized;
 
-        float diff = Vector3.Angle(transform.up, normal);
-        Vector3 axis = Vector3.Cross(transform.up, normal);
-        transform.RotateAround(baseTransform.position, axis, diff);
+        onGround = isGrounded();
 
         if (!onGround) {
-            rb.AddForce(- normal * accel);
+            rb.AddForce(-normal * accel);
         }
     }
 
-    void OnCollisionEnter(Collision collision) {
-        if (!onGround && collision.gameObject.tag == "World") {
-            onGround = true;
-            rb.velocity.Set(0, 0, 0);
-        }
+    bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, -transform.up, distToGround + 0.1f);
     }
 }
