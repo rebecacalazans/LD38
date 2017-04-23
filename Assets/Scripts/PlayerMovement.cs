@@ -29,9 +29,12 @@ public class PlayerMovement : MonoBehaviour {
             transform.RotateAround(transform.position, transform.up, angularSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKey("space") && playerGravity.isGrounded())
-        {
+        if (Input.GetKey("space") && playerGravity.isGrounded()) {
             rb.AddForce(jumpSpeed * transform.up);
+        }
+
+        if(Input.GetKey("c") && GetComponent<PlayerVariables>().nextObject != null) {
+            GetComponent<PlayerVariables>().nextObject.executeAction();
         }
 	}
 }

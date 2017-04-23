@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4520412051723146}
   - component: {fileID: 95566504125284420}
   - component: {fileID: 114212865278257292}
+  - component: {fileID: 136829626993575942}
+  - component: {fileID: 114350307319235098}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -55,6 +57,7 @@ GameObject:
   - component: {fileID: 4551627311428028}
   - component: {fileID: 33818838078933460}
   - component: {fileID: 23405103181900490}
+  - component: {fileID: 64862959896315954}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -181,6 +184,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985447141176960}
   m_Mesh: {fileID: 4300000, guid: 4e986bc87a8275343a7adba408c08b8e, type: 3}
+--- !u!64 &64862959896315954
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985447141176960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4e986bc87a8275343a7adba408c08b8e, type: 3}
 --- !u!95 &95566504125284420
 Animator:
   serializedVersion: 3
@@ -211,3 +228,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planet: {fileID: 0}
   baseTransform: {fileID: 4520412051723146}
+--- !u!114 &114350307319235098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1690100601000258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd4b2f39a0d13740ac128dbca8c9861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  player: {fileID: 0}
+--- !u!136 &136829626993575942
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1690100601000258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.95
+  m_Height: 8.01
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.4, z: 0}
