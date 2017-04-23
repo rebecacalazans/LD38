@@ -5,15 +5,35 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.78.0 commit date:2017-02-24, commit time:14:33, hash:e92f2352830</authoring_tool>
     </contributor>
-    <created>2017-04-23T03:48:17</created>
-    <modified>2017-04-23T03:48:17</modified>
+    <created>2017-04-23T04:12:51</created>
+    <modified>2017-04-23T04:12:51</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
-  <library_images/>
+  <library_images>
+    <image id="Material_001_Diffuse_Color" name="Material_001_Diffuse_Color">
+      <init_from>Material.001%20Diffuse%20Color.png</init_from>
+    </image>
+    <image id="Material_001_Diffuse_Color_001" name="Material_001_Diffuse_Color_001">
+      <init_from>Material.001%20Diffuse%20Color.001.png</init_from>
+    </image>
+    <image id="Material_002_Diffuse_Color" name="Material_002_Diffuse_Color">
+      <init_from>Material.002%20Diffuse%20Color.png</init_from>
+    </image>
+  </library_images>
   <library_effects>
     <effect id="Material_001-effect">
       <profile_COMMON>
+        <newparam sid="Material_001_Diffuse_Color_001-surface">
+          <surface type="2D">
+            <init_from>Material_001_Diffuse_Color_001</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="Material_001_Diffuse_Color_001-sampler">
+          <sampler2D>
+            <source>Material_001_Diffuse_Color_001-surface</source>
+          </sampler2D>
+        </newparam>
         <technique sid="common">
           <phong>
             <emission>
@@ -23,7 +43,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.64 0.64 0.64 1</color>
+              <texture texture="Material_001_Diffuse_Color_001-sampler" texcoord="UVMap"/>
             </diffuse>
             <specular>
               <color sid="specular">0.5 0.5 0.5 1</color>
@@ -40,6 +60,16 @@
     </effect>
     <effect id="Material_002-effect">
       <profile_COMMON>
+        <newparam sid="Material_002_Diffuse_Color-surface">
+          <surface type="2D">
+            <init_from>Material_002_Diffuse_Color</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="Material_002_Diffuse_Color-sampler">
+          <sampler2D>
+            <source>Material_002_Diffuse_Color-surface</source>
+          </sampler2D>
+        </newparam>
         <technique sid="common">
           <phong>
             <emission>
@@ -49,7 +79,7 @@
               <color sid="ambient">0 0 0 1</color>
             </ambient>
             <diffuse>
-              <color sid="diffuse">0.64 0.64 0.64 1</color>
+              <texture texture="Material_002_Diffuse_Color-sampler" texcoord="UVMap"/>
             </diffuse>
             <specular>
               <color sid="specular">0.5 0.5 0.5 1</color>
@@ -202,7 +232,9 @@
         <instance_geometry url="#Cylinder-mesh" name="Cylinder">
           <bind_material>
             <technique_common>
-              <instance_material symbol="Material_001-material" target="#Material_001-material"/>
+              <instance_material symbol="Material_001-material" target="#Material_001-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
             </technique_common>
           </bind_material>
         </instance_geometry>
@@ -216,7 +248,9 @@
         <instance_geometry url="#Cone-mesh" name="Cone">
           <bind_material>
             <technique_common>
-              <instance_material symbol="Material_002-material" target="#Material_002-material"/>
+              <instance_material symbol="Material_002-material" target="#Material_002-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
             </technique_common>
           </bind_material>
         </instance_geometry>
