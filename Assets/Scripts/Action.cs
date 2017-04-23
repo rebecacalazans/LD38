@@ -10,7 +10,6 @@ public class Action : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ok trigger!");
         if (other.tag == "Player") player.nextObject = this;
     }
     private void OnTriggerExit(Collider other)
